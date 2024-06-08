@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ogarnac wtyczke do legendy html taskow do zrobienia, zeby najezdzac i byc tepanym-->
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Ranking Akademików PW</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!--GOOGLE SYMBOLS-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 30
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Ranking Akademików PW</h1>
+    </div>
+  </div>
+  <div class="content">
+    <!--NARZEDZIA DO WYSZUKIWANIA-->
+    <div class="search-tools">
+      <div class="preferences">
+        <div class="dropdown-header">
+          <p class="p-add-features">Preferencje</p>
+        </div>
+        <div class="p-sliders" hidden>
+          <span>Atmosfera</span><span class="s-value" id="p1">0</span><input type="range" name="rn-atmosfera"
+            id="rn-atmosfera" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 1)"
+            onchange="showVal(this.value, 1)">
+          <span>Czystość</span><span class="s-value" id="p2">0</span><input type="range" name="rn-czystosc"
+            id="rn-czystosc" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 2)"
+            onchange="showVal(this.value, 2)">
+
+          <span>Lokalizacja</span><span class="s-value" id="p3">0</span><input type="range" name="rn-lokalizacja"
+            id="rn-lokalizacja" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 3)"
+            onchange="showVal(this.value, 3)">
+        </div>
+      </div>
+      <!--ZAPEWNIONE WYPOSAZENIE-->
+      <div class="complimentary-eq">
+
+        <div class="dropdown-header">
+          <img class="dropdown-arrow" src="dropdown-arrow-blue.svg" alt="huj">
+          <p class="p-complimentary-eq">Zapewnione wyposażenie</p>
+
+        </div>
+        <ul hidden>
+          <li>
+            <input type="checkbox" name="cb-theroom" id="cb-theroom" /><label for="cb-theroom">Pokój</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-desklamp" id="cb-desklamp" /><label for="cb-desklamp">Lampka
+                  biurkowa</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-bedsheets" id="cb-bedsheets" /><label for="cb-bedsheets">Pościel</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-rj45" id="cb-rj45" /><label for="cb-rj45">Kabel do internetu</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-curtains" id="cb-curtains" /><label for="cb-curtains">Firanki</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-fridge" id="cb-fridge" /><label for="cb-fridge">Lodówka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-rsink" id="cb-rsink" /><label for="cb-rsink">Zlew</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-kitchen" id="cb-kitchen" /><label for="cb-kitchen">Kuchnia</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-stove" id="cb-stove" /><label for="cb-stove">Kuchenka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-oven" id="cb-oven" /><label for="cb-oven">Piekarnik</label>
+              </li>
+
+
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-bathroom" id="cb-bathroom" /><label for="cb-bathroom">Łazienka</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-sink" id="cb-sink" /><label for="cb-sink">Umywalka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-shower" id="cb-shower" /><label for="cb-shower">Prysznic</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-toilet" id="cb-toilet" /><label for="cb-toilet">Toaleta</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-urinal" id="cb-urinal" /><label for="cb-urinal">Pisuar</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-laundry" id="cb-laundry" /><label for="cb-laundry">Pranie</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-laudrym" id="cb-laudrym" /><label for="cb-laudrym">Pralka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-drier" id="cb-drier" /><label for="cb-drier">Suszarka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-iron" id="cb-iron" /><label for="cb-iron">Żelazko</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-steamer" id="cb-steamer" /><label for="cb-steamer">Parownica</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-cleaning" id="cb-cleaning" /><label for="cb-cleaning">Art. do
+              sprzątania</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-vaccum" id="cb-vaccum" /><label for="cb-vaccum">Odkurzacz</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-mop" id="cb-mop" /><label for="cb-mop">Mop</label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!--DODATKOWE-->
+      <div class="additional-features">
+        <div class="dropdown-header">
+          <img class="dropdown-arrow" src="dropdown-arrow-blue.svg" alt="huj">
+          <p class="p-add-features">Dodatkowe udogodnienia</p>
+        </div>
+        <ul hidden>
+          <li>
+            <input type="checkbox" name="cb-sport" id="cb-sport" /><label for="cb-sport">Sport</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-gym" id="cb-gym" /><label for="cb-gym">Siłownia</label>
+              </li>
+
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-peace" id="cb-peace" /><label for="cb-peace">Cisza</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-studyroom" id="cb-studyroom" /><label for="cb-studyroom">Sala
+                  skupienia</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-calmarea" id="cb-calmarea" /><label for="cb-calmarea">Cicha
+                  okolica</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-games" id="cb-games" /><label for="cb-games">Rozrywka</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-banquet" id="cb-banquet" /><label for="cb-banquet">Sala
+                  bankietowa</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-pingpong" id="cb-pingpong" /><label for="cb-pingpong">Pingpong</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-8ball" id="cb-8ball" /><label for="cb-8ball">Billard</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-library" id="cb-library" /><label for="cb-library">Biblioteka</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-musicr" id="cb-musicr" /><label for="cb-musicr">Sala
+                  muzyczna</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-chillr" id="cb-chillr" /><label for="cb-chillr">Sala relaksu</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-boardgamesr" id="cb-boardgamesr" /><label for="cb-boardgamesr">Sala
+                  gier planszowych</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-cinemar" id="cb-cinemar" /><label for="cb-cinemar">Sala
+                  kinowa</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-modelingr" id="cb-modelingr" /><label
+                  for="cb-modelingr">Modelarnia</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-parking" id="cb-parking" /><label for="cb-parking">Parking</label>
+            <ul>
+              <li>
+                <input type="checkbox" name="cb-carp" id="cb-carp" /><label for="cb-carp">Parking
+                  samochodowy</label>
+              </li>
+              <li>
+                <input type="checkbox" name="cb-bikep" id="cb-bikep" /><label for="cb-bikep">Parking
+                  rowerowy</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-shops" id="cb-shops" /><label for="cb-shops">Sklepy</label>
+          </li>
+          <li>
+            <input type="checkbox" name="cb-location" id="cb-location" /><label for="cb-location">Lokalizacja</label>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!--WYNIKI WYSZUKIWANIA-->
+    <div class="search-results">
+      <div id="results">
+
+        <div class="dormitory-wrapper" data-dorm-id="0">
+          <div class="d-img"><img src="./d-photos/Alkatraz.png" alt=" DS Akademik">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Akademik">DS
+                Akademik</a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    train
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/KmX5WVCv1Wm8FYhr6">ul. Akademicka 5, 02-038
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Ochota</div>
+              <div class="dic-distances">2.2 km do Gmachu Głównego PW</div>
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">390 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os. II p.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dormitory-wrapper" data-dorm-id="1">
+          <div class="d-img"><img src="./d-photos/Babilon.png" alt=" DS Babilon">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Babilon">DS
+                Babilon</a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    train
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/EGpBe152x5tCoT9b6"> ul. Kopińska 12/16, 02-321
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Ochota</div>
+              <div class="dic-distances">2.5 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">320 zł
+                <span class="tooltip">Najtańszy pokój<br> (5 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dormitory-wrapper" data-dorm-id="2">
+          <div class="d-img"><img src="./d-photos/Bratniak-Muszelka.png" alt="DS Bratniak-Muszelka">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Bratniak-Muszelka">DS
+                Bratniak-Muszelka
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    train
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/EHKRSjL8hxBoLtWm9"> ul. Grójecka 39, 02-031
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Ochota</div>
+              <div class="dic-distances">2.3 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">320 zł
+                <span class="tooltip">Najtańszy pokój<br> (5 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dormitory-wrapper" data-dorm-id="3">
+          <div class="d-img"><img src="./d-photos/Mikrus.png" alt=" DS Mikrus">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Mikrus">DS
+                Mikrus</a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    subway
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/L61rFsBbr7s5nBnu7"> ul. Ludwika Waryńskiego 10,
+                  00-631 Warszawa</a>
+              </div>
+              <div class="dic-distances">Śródmieście</div>
+              <div class="dic-distances">0.6 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">530 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dormitory-wrapper" data-dorm-id="4">
+          <div class="d-img"><img src="./d-photos/Pineska-Tulipan.png" alt=" DS Pineska-Tulipan">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Pineska-Tulipan">DS
+                Pineska-Tulipan
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    train
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/y82DpQy4juwfjPAJA"> ul. Uniwersytecka 5, 02-036
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Ochota</div>
+              <div class="dic-distances">2.1 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">520 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="dormitory-wrapper" data-dorm-id="5">
+          <div class="d-img"><img src="./d-photos/Riviera.png" alt=" DS Riviera">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Riviera">DS Riviera
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    subway
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/ipMgvhJUBiKT4rwx8"> ul. Ludwika Waryńskiego 12,
+                  00-631 Warszawa</a>
+              </div>
+              <div class="dic-distances">Śródmieście</div>
+              <div class="dic-distances">0.6 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">530 zł
+                <span class="tooltip">Najtańszy pokój<br> (3 os. reklama)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dormitory-wrapper" data-dorm-id="6">
+          <div class="d-img"><img src="./d-photos/Tatrzanska.png" alt=" DS Tatrzanska">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Tatrzanska">DS
+                Tatrzańska
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/wiHh96DpdeuKik869"> ul. Tatrzańska 7A, 00-742
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Mokotów</div>
+              <div class="dic-distances">3 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">610 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dormitory-wrapper" data-dorm-id="7">
+          <div class="d-img"><img src="./d-photos/Ustronie.png" alt=" DS Ustronie">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Ustronie">DS Ustronie
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    train
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    subway
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/Pj3yxqvLnG9yefjE9"> ul. Księcia Janusza 39,
+                  01-452 Warszawa</a>
+              </div>
+              <div class="dic-distances">Wola</div>
+              <div class="dic-distances">6.4 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">480 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dormitory-wrapper" data-dorm-id="8">
+          <div class="d-img"><img src="./d-photos/Żaczek.png" alt="DS Żaczek">
+          </div>
+          <div class="d-info">
+            <h3 class="di-header"><a
+                href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich/DS-Zaczek">DS Żaczek
+              </a>
+              <div class="di-transport">
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    directions_bus
+                  </span></div>
+                <div class="dit-mean"><span class="material-symbols-outlined">
+                    tram
+                  </span>
+                </div>
+              </div>
+            </h3>
+
+            <div class="di-content">
+              <div class="dic-address"><a href="https://maps.app.goo.gl/NBK2VAAPK42CkigV6"> ul. Wołoska 141A, 02-507
+                  Warszawa</a>
+              </div>
+              <div class="dic-distances">Mokotów</div>
+              <div class="dic-distances">3 km do Gmachu Głównego PW</div>
+
+            </div>
+          </div>
+          <div class="d-sidebar">
+            <div class="ds-score-wrapper">
+              <div class="ds-gscore"> <span id="Gscore"></span></div>
+              <div class="ds-acl-wrapper">
+                <div class="ds-score">A<br><span id="Ascore"></span>
+                  <span class="tooltip">Atmosfera</span></span>
+                </div>
+                <div class="ds-score">C<br><span id="Cscore"></span>
+                  <span class="tooltip">Czystość</span>
+                </div>
+                <div class="ds-score">L<br><span id="Lscore"></span>
+                  <span class="tooltip">Lokalizacja</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-price-wrapper">
+              <div class="ds-price">540 zł
+                <span class="tooltip">Najtańszy pokój<br> (2 os.)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--STOPKA-->
+  <div class="footer">
+    <div class="info">
+      <div class="i1">
+        <div class="group5">Grupa 5</div>
+        <div class="pti">PTI</div>
+      </div>
+      <div class="first-member">Adam Drogowski</div>
+      <div class="member">Bartosz Jemielity</div>
+      <div class="member">Patryk Kustra</div>
+      <div class="member">Bartek Łojek</div>
+      <div class="member">Piotr Wójcik</div>
+    </div>
+    <div class="extra-info">
+      <div class="pic">
+        <div class="ra">Zdjęcia:</div> <a
+          href="https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich">https://www.akademiki.pw.edu.pl/akademiki/Informator-O-Domach-Studenckich</a>
+      </div>
+      <div class="pw">
+        www.
+        <div class="ra">Ranking Akademików PW</div> by Piotr Wójcik &copy
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
