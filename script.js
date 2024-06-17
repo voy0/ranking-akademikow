@@ -70,7 +70,7 @@ function rotateDisplayArrow(header) {
 }
 
 function showVal(newVal, id) {
-    console.log(id)
+    updateScores();
     document.getElementById('p' + id).innerHTML = newVal;
 }
 const dormScoring = {
@@ -87,6 +87,10 @@ const dormScoring = {
 function updateScores() {
     const dormWrappers = document.querySelectorAll('.dormitory-wrapper');
 
+    Wa = document.getElementById('rn-atmosfera').value
+    Wc = document.getElementById('rn-czystosc').value
+    Wl = document.getElementById('rn-lokalizacja').value
+
     dormWrappers.forEach(wrapper => {
         const dormId = wrapper.getAttribute('data-dorm-id');
         const scores = dormScoring[dormId];
@@ -100,9 +104,11 @@ function updateScores() {
             if (AscoreElement) AscoreElement.textContent = scores[0].toFixed(1);
             if (CscoreElement) CscoreElement.textContent = scores[1].toFixed(1);
             if (LscoreElement) LscoreElement.textContent = scores[2].toFixed(1);
-
+            var averageScore = 0;
             if (GscoreElement) {
-                const averageScore = (scores[0] + scores[1] + scores[2]) / 3;
+                if (Wa != 0 || Wc != 0 || Wl != 0) {
+                    averageScore = 20 * (Wa * scores[0] + Wc * scores[1] + Wl * scores[2]) / (Wa + Wc + Wl)
+                }
                 GscoreElement.textContent = averageScore.toFixed(1);
             }
         }
@@ -169,11 +175,10 @@ document.addEventListener("DOMContentLoaded", function () {
             2: ['cb-rj45', 'cb-curtains'], // Bratniak-Muszelka
             3: ['cb-stove', 'cb-oven'], // Mikrus
             4: ['cb-sink', 'cb-shower'], // Pineska-Tulipan
-            5: ['cb-laudrym', 'cb-drier'], // Riviera
-            6: [], // Tatrzanska
-            7: [], // Ustronnie
-            8: [], // Zaczek
-
+            5: ['cb-laudrym', 'cb-drier', 'cb-stove', 'cb-oven', 'cb-bedsheets', 'cb-desklamp', 'cb-fridge', 'cb-rsink', 'cb-shower', 'cb-toilet', 'cb-banquet', 'cb-chillr', 'cb-studyroom', 'cb-bikep', 'cb-musicr'], // Riviera
+            6: ['cb-bedsheets', 'cb-curtains', 'cb-desklamp', 'cb-stove', 'cb-oven', 'cb-rsink', 'cb-shower', 'cb-toilet', 'cb-banquet'], // Tatrzanska
+            7: ['cb-bedsheets', 'cb-desklamp', 'cb-fridge', 'cb-rsink', 'cb-shower', 'cb-toilet', 'cb-court', 'cb-rj45', 'cb-urinal', 'cb-steamer', 'cb-iron', 'cb-stove', 'cb-oven', 'cb-studyroom', 'cb-chillr', 'cb-carp', 'cb-bikep', 'cb-cinemar', 'cb-laundrym', 'cb-drier'], // Ustronnie
+            8: ['cb-cinemar', 'cb-laundrym', 'cb-drier', 'cb-gym', 'cb-8ball', 'cb-shower', 'cb-toilet', 'cb-stove', 'cb-bedsheets', 'cb-desklamp', 'cb-fridge', 'cb-rsink', 'cb-steamer'], // Zaczek
 
         };
         return dormFeatures[dormId] || [];
