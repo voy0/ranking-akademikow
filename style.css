@@ -420,8 +420,17 @@ a:hover {
 }
 
 .info {
-    width: 100%;
     transform: translateY(50%);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-wrapper {
+
+    font-size: 0.5em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -429,7 +438,7 @@ a:hover {
 }
 
 .i1 {
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bolder;
     display: grid;
     grid-row: 1fr;
@@ -495,6 +504,10 @@ a:hover {
 
     .header {
         width: 100vw;
+    }
+
+    .search-tools {
+        position: relative;
     }
 
     .search-tools,
@@ -594,17 +607,39 @@ a:hover {
     }
 
     .info {
-        font-size: 2em;
-
+        transform: translateY(0);
+        font-size: 1em;
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .info div {}
+
+    .member-wrapper {
+        justify-content: left;
+        font-size: 1em;
+        width: min-content;
+        border-left: 0.2em #fff solid;
+        padding-left: 2em;
+    }
+
+    .member-wrapper>div {
+        border: none;
+        width: max-content;
+        text-align: left;
+        padding: 0.5em;
+        margin: 0;
+    }
+
+    .member-wrapper div+div {
+        padding: 0.5em
+    }
 
     .i1 {
-        border-right: 0.2em #fff solid;
+        font-size: 3em;
+        border: none;
         padding: 0;
         padding-right: 1em;
         margin: 0;
@@ -612,15 +647,14 @@ a:hover {
 
     .first-member {
         font-size: 1em;
-        padding-left: 1em;
-        margin-left: 1em;
-        border-left: 0.2em #fff solid;
     }
 
     .member {
         font-size: 1em;
-        padding-left: 1em;
-        margin-left: 1em;
-        border-width: 0.2em;
+        margin: none;
+    }
+
+    .extra-info {
+        font-size: 0.8em;
     }
 }
