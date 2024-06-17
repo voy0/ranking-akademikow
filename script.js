@@ -5,7 +5,10 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 //  checkboxes of interest 
 const allThings = nodeArray('input');
 
-
+document.getElementById('cb-theroom').indeterminate = true;
+document.getElementById('cb-bathroom').indeterminate = true;
+document.getElementById('cb-laundry').indeterminate = true;
+document.getElementById('cb-cleaning').indeterminate = true;
 //  global listener
 addEventListener('change', e => {
     let check = e.target;
@@ -107,6 +110,8 @@ function updateScores() {
 }
 document.addEventListener("DOMContentLoaded", updateScores());
 document.addEventListener("DOMContentLoaded", function () {
+
+
     // Pobierz wszystkie checkboxy
     const checkboxes = document.querySelectorAll('.complimentary-eq input[type="checkbox"]');
 
@@ -168,6 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
             6: [], // Tatrzanska
             7: [], // Ustronnie
             8: [], // Zaczek
+
+
         };
         return dormFeatures[dormId] || [];
     }
@@ -181,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         return matchScore;
     }
+
 });
 
 

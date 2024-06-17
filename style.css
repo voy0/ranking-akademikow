@@ -8,7 +8,11 @@
     --academic2: #000030;
 }
 
+
+
+
 body {
+    font-size: 2vw;
     margin: 0 !important;
     width: 100vw;
     overflow-x: hidden;
@@ -25,7 +29,12 @@ a:hover {
     color: var(--satin-gold) !important;
 }
 
+.header-wrapper {
+    width: 100vw;
+}
+
 .header {
+    font-size: 0.8em;
     height: 150px;
     background-color: var(--academic);
     display: flex;
@@ -40,7 +49,8 @@ a:hover {
 
 .content {
     display: grid;
-    grid-template-columns: 30vw 70vw;
+    grid-template-columns: 20vw 80vw;
+    font-size: 0.6em;
 }
 
 
@@ -49,18 +59,19 @@ a:hover {
 .search-tools {
     overflow-y: scroll;
     user-select: none;
-    min-height: 500px;
-    max-height: 1235px;
+    height: 100vh;
     background-color: #fff;
     justify-content: center;
     position: sticky;
-    font-size: 15px !important;
+    top: 0;
+
 
 }
 
 /*DROPDOWN HEADER*/
 .dropdown-header {
-    transition: 0.2s;
+    font-size: 1em;
+    transition: 0.1s;
     font-family: Poppins;
     display: flex;
     cursor: pointer;
@@ -106,6 +117,7 @@ a:hover {
 
 .search-tools li {
     padding: 5px;
+    font-size: 0.9em;
 }
 
 
@@ -159,6 +171,7 @@ a:hover {
 }
 
 
+
 .preferences>.dropdown-header {
     cursor: default;
 }
@@ -194,9 +207,7 @@ a:hover {
     font-weight: 500;
 }
 
-.additional-features {
-    padding-bottom: 100vh;
-}
+
 
 .p-add-features {
     font-weight: 500;
@@ -214,6 +225,7 @@ a:hover {
 
 /*DORMITORY ENTRY*/
 .dormitory-wrapper {
+    height: 200px;
     margin: 20px;
     padding: 20px;
     margin-right: 40px;
@@ -226,6 +238,7 @@ a:hover {
 
 .d-img {
     height: 100%;
+
     width: min-content;
     display: flex;
     justify-content: left;
@@ -233,12 +246,13 @@ a:hover {
 }
 
 .d-img img {
-    height: 10vw;
+    height: 100%;
+    width: auto;
     border-radius: 20px;
 }
 
 .d-info {
-    min-height: 200px;
+    height: 100%;
     width: 100%;
     display: inline;
     float: left;
@@ -292,6 +306,7 @@ a:hover {
 .d-sidebar {
     color: white;
     height: 200px;
+    width: 150px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -300,8 +315,7 @@ a:hover {
 }
 
 .ds-score-wrapper {
-    --score-width: 90px;
-    width: var(--score-width);
+    width: 100px;
     height: 120px;
     border-radius: 10px;
     background-color: var(--academic);
@@ -336,8 +350,9 @@ a:hover {
 
 
 .ds-price-wrapper {
-    min-width: 70px;
+    font-size: 14px;
     height: 50px;
+    width: 100px;
     border-radius: 10px;
     background-color: var(--academic);
     text-align: center;
@@ -418,7 +433,7 @@ a:hover {
     font-weight: bolder;
     display: grid;
     grid-row: 1fr;
-    text-align: center;
+    text-align: right;
     padding-right: 20px;
     margin-right: 20px;
     border-right: 5px white solid;
@@ -457,17 +472,155 @@ a:hover {
     font-weight: 400;
 }
 
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 24px;
+    }
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+    body {
+        width: 100%;
+        font-size: 2vw;
+    }
+
+    .header-wrapper {
+        width: 100vw;
+    }
+
     .content {
         grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .header {
+        width: 100vw;
     }
 
     .search-tools,
     .search-box {
         min-width: unset;
         /* Anuluje minimalną szerokość */
+        min-height: 0;
+        height: auto;
         width: 100%;
+        font-size: 3em;
+        padding-bottom: 20px;
         /* Rozciąga elementy na całą dostępną szerokość */
+    }
+
+    .additional-features {
+        padding-bottom: 0;
+    }
+
+    .dormitory-wrapper {
+        font-size: 1em;
+        height: 25vw;
+        width: 90vw;
+        margin: 2em;
+        padding: 2em;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .d-info {
+        height: 100%;
+        min-width: none;
+    }
+
+    .di-header {
+        font-size: 3em;
+        min-width: none;
+
+    }
+
+    .di-content {
+        font-size: 1.5em;
+    }
+
+    .d-sidebar {
+        height: 100%;
+        min-width: none;
+        width: 8em;
+        margin-right: 2em;
+        margin-top: 2em;
+    }
+
+    .d-sidebar>div {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .ds-score-wrapper {
+        height: 120%;
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .ds-gscore {
+        font-size: 3em;
+    }
+
+    .ds-acl-wrapper {
+        margin: 0em;
+        font-size: 1em;
+    }
+
+    .ds-score {
+        width: 2em;
+        font-size: 1em;
+    }
+
+    .ds-score span {
+        font-size: 1em;
+    }
+
+    .ds-price-wrapper {
+        height: 50%;
+        width: 100%;
+        margin: 0;
+        font-size: 2em;
+
+    }
+
+    .ds-price {
+        margin: 0;
+    }
+
+    .footer {
+        font-size: 1em;
+    }
+
+    .info {
+        font-size: 2em;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info div {}
+
+    .i1 {
+        border-right: 0.2em #fff solid;
+        padding: 0;
+        padding-right: 1em;
+        margin: 0;
+    }
+
+    .first-member {
+        font-size: 1em;
+        padding-left: 1em;
+        margin-left: 1em;
+        border-left: 0.2em #fff solid;
+    }
+
+    .member {
+        font-size: 1em;
+        padding-left: 1em;
+        margin-left: 1em;
+        border-width: 0.2em;
     }
 }

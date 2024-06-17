@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no">
   <link rel="stylesheet" href="style.css" />
   <title>Ranking Akademików PW</title>
 
@@ -35,7 +35,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="header-wrapper">
     <div class="header">
       <h1>Ranking Akademików PW</h1>
     </div>
@@ -48,15 +48,15 @@
           <p class="p-add-features">Preferencje</p>
         </div>
         <div class="p-sliders" hidden>
-          <span>Atmosfera</span><span class="s-value" id="p1">0</span><input type="range" name="rn-atmosfera"
-            id="rn-atmosfera" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 1)"
+          <span>Atmosfera</span><span class="s-value" id="p1">3</span><input type="range" name="rn-atmosfera"
+            id="rn-atmosfera" min="0" max="5" step="1" oninput="showVal(this.value, 1)"
             onchange="showVal(this.value, 1)">
-          <span>Czystość</span><span class="s-value" id="p2">0</span><input type="range" name="rn-czystosc"
-            id="rn-czystosc" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 2)"
+          <span>Czystość</span><span class="s-value" id="p2">3</span><input type="range" name="rn-czystosc"
+            id="rn-czystosc" min="0" max="5" step="1" oninput="showVal(this.value, 2)"
             onchange="showVal(this.value, 2)">
 
-          <span>Lokalizacja</span><span class="s-value" id="p3">0</span><input type="range" name="rn-lokalizacja"
-            id="rn-lokalizacja" min="0" max="5" step="1" value="0" oninput="showVal(this.value, 3)"
+          <span>Lokalizacja</span><span class="s-value" id="p3">3</span><input type="range" name="rn-lokalizacja"
+            id="rn-lokalizacja" min="0" max="5" step="1" oninput="showVal(this.value, 3)"
             onchange="showVal(this.value, 3)">
         </div>
       </div>
@@ -73,11 +73,12 @@
             <input type="checkbox" name="cb-theroom" id="cb-theroom" /><label for="cb-theroom">Pokój</label>
             <ul>
               <li>
-                <input type="checkbox" name="cb-desklamp" id="cb-desklamp" /><label for="cb-desklamp">Lampka
+                <input type="checkbox" name="cb-desklamp" id="cb-desklamp" checked /><label for="cb-desklamp">Lampka
                   biurkowa</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-bedsheets" id="cb-bedsheets" /><label for="cb-bedsheets">Pościel</label>
+                <input type="checkbox" name="cb-bedsheets" id="cb-bedsheets" checked /><label
+                  for="cb-bedsheets">Pościel</label>
               </li>
               <li>
                 <input type="checkbox" name="cb-rj45" id="cb-rj45" /><label for="cb-rj45">Kabel do internetu</label>
@@ -86,21 +87,21 @@
                 <input type="checkbox" name="cb-curtains" id="cb-curtains" /><label for="cb-curtains">Firanki</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-fridge" id="cb-fridge" /><label for="cb-fridge">Lodówka</label>
+                <input type="checkbox" name="cb-fridge" id="cb-fridge" checked /><label for="cb-fridge">Lodówka</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-rsink" id="cb-rsink" /><label for="cb-rsink">Zlew</label>
+                <input type="checkbox" name="cb-rsink" id="cb-rsink" checked /><label for="cb-rsink">Zlew</label>
               </li>
             </ul>
           </li>
           <li>
-            <input type="checkbox" name="cb-kitchen" id="cb-kitchen" /><label for="cb-kitchen">Kuchnia</label>
+            <input type="checkbox" name="cb-kitchen" id="cb-kitchen" checked /><label for="cb-kitchen">Kuchnia</label>
             <ul>
               <li>
-                <input type="checkbox" name="cb-stove" id="cb-stove" /><label for="cb-stove">Kuchenka</label>
+                <input type="checkbox" name="cb-stove" id="cb-stove" checked /><label for="cb-stove">Kuchenka</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-oven" id="cb-oven" /><label for="cb-oven">Piekarnik</label>
+                <input type="checkbox" name="cb-oven" id="cb-oven" checked /><label for="cb-oven">Piekarnik</label>
               </li>
 
 
@@ -110,13 +111,13 @@
             <input type="checkbox" name="cb-bathroom" id="cb-bathroom" /><label for="cb-bathroom">Łazienka</label>
             <ul>
               <li>
-                <input type="checkbox" name="cb-sink" id="cb-sink" /><label for="cb-sink">Umywalka</label>
+                <input type="checkbox" name="cb-sink" id="cb-sink" checked /><label for="cb-sink">Umywalka</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-shower" id="cb-shower" /><label for="cb-shower">Prysznic</label>
+                <input type="checkbox" name="cb-shower" id="cb-shower" checked /><label for="cb-shower">Prysznic</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-toilet" id="cb-toilet" /><label for="cb-toilet">Toaleta</label>
+                <input type="checkbox" name="cb-toilet" id="cb-toilet" checked /><label for="cb-toilet">Toaleta</label>
               </li>
               <li>
                 <input type="checkbox" name="cb-urinal" id="cb-urinal" /><label for="cb-urinal">Pisuar</label>
@@ -127,10 +128,11 @@
             <input type="checkbox" name="cb-laundry" id="cb-laundry" /><label for="cb-laundry">Pranie</label>
             <ul>
               <li>
-                <input type="checkbox" name="cb-laudrym" id="cb-laudrym" /><label for="cb-laudrym">Pralka</label>
+                <input type="checkbox" name="cb-laudrym" id="cb-laudrym" checked /><label
+                  for="cb-laudrym">Pralka</label>
               </li>
               <li>
-                <input type="checkbox" name="cb-drier" id="cb-drier" /><label for="cb-drier">Suszarka</label>
+                <input type="checkbox" name="cb-drier" id="cb-drier" checked /><label for="cb-drier">Suszarka</label>
               </li>
               <li>
                 <input type="checkbox" name="cb-iron" id="cb-iron" /><label for="cb-iron">Żelazko</label>
@@ -145,7 +147,8 @@
               sprzątania</label>
             <ul>
               <li>
-                <input type="checkbox" name="cb-vaccum" id="cb-vaccum" /><label for="cb-vaccum">Odkurzacz</label>
+                <input type="checkbox" name="cb-vaccum" id="cb-vaccum" checked /><label
+                  for="cb-vaccum">Odkurzacz</label>
               </li>
               <li>
                 <input type="checkbox" name="cb-mop" id="cb-mop" /><label for="cb-mop">Mop</label>
@@ -168,6 +171,7 @@
               <li>
                 <input type="checkbox" name="cb-gym" id="cb-gym" /><label for="cb-gym">Siłownia</label>
               </li>
+              <li><input type="checkbox" name="cb-court" id="cb-court"><label for="cb-court">Boisko</label></li>
 
             </ul>
           </li>
